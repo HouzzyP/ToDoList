@@ -32,9 +32,8 @@ export default function App() {
             {notes.map((a) => {
               return (
                 <div className="notes">
-                  <input value={a.index} onChange={checkbox} type="checkbox" />
-                  <li key={a.index}>- {a.value}</li>
-
+                  <input type="checkbox" />
+                  <li key={a.index}>{a.value}</li>
                   <button
                     className="btn-del"
                     value={a.index}

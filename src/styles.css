@@ -11,6 +11,7 @@ body {
 }
 h1 {
   text-align: center;
+  font-family: "Niconne", cursive;
 }
 
 .inputBar-Container {
@@ -48,6 +49,10 @@ h1 {
 li {
   list-style: none;
   margin: 0;
+}
+
+.notes:hover {
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .button {
@@ -92,6 +97,7 @@ li {
   display: flex;
   justify-content: space-between;
   margin-top: 5px;
+  border: 1px solid transparent;
 }
 
 @media screen and (max-width: 794px) {
