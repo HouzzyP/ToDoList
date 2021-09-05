@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Fragment } from "react";
-import { Inputbar } from "../components/InputBar";
+import { Inputbar } from "./components/InputBar";
 import { useForceUpdate } from "./ForceUpdate";
 import "./styles.css";
 
