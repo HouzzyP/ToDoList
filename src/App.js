@@ -1,20 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import { Inputbar } from "../components/InputBar";
+import { useForceUpdate } from "./ForceUpdate";
 import "./styles.css";
 
 export default function App() {
   const [search, setSearch] = useState("");
   const [notes, setNotes] = useState([]);
-  const [isChecked, setIsChecked] = useState(false);
+  const forceUpdate = useForceUpdate();
 
   const Delete = (e) => {
     let b = notes.filter((a) => a.index != e.target.value);
+    console.log(b);
     setNotes(b);
     return;
   };
-  const checkbox = (e) => {
-    setIsChecked(!isChecked);
-    console.log(isChecked);
+
+  const Checked = (e) => {
+    let b = notes.filter((a) => a.index == e.target.value)[0];
+    notes.map((note) => {
+      if (note.index === b.index) {
+        console.log(note.check);
+        if (note.check === "note") {
+          note.check = "note-checked";
+        } else {
+          note.check = "note";
+        }
+        forceUpdate();
+      }
+    });
   };
 
   return (
@@ -27,22 +40,36 @@ export default function App() {
           setNotes={setNotes}
           notes={notes}
         />
-        <ul class="notes-container">
-          <div>
+        <ul>
+          <Fragment>
             {notes.map((a) => {
               return (
                 <div className="notes">
-                  <input type="checkbox" />
-                  <li key={a.index}>{a.value}</li>
-                  <button
-                    className="btn-del"
-                    value={a.index}
-                    onClick={Delete}
-                  />
+                  <li className={a.check} key={a.index}>
+                    {a.value}
+                  </li>
+                  <div className="btn-container">
+                    <button
+                      value={a.index}
+                      onClick={Checked}
+                      className="btn-check"
+                      name={a.check}
+                    >
+                      ✓
+                    </button>
+                    <button
+                      className="btn-del"
+                      value={a.index}
+                      onClick={Delete}
+                      name="asd"
+                    >
+                      X
+                    </button>
+                  </div>
                 </div>
               );
             })}
-          </div>
+          </Fragment>
         </ul>
       </div>
     </div>

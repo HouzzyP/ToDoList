@@ -15,10 +15,11 @@ export const Inputbar = (props) => {
         {
           index: index,
           value: search,
-          check: false
+          check: "note"
         }
       ]);
     }
+
     setIndex(index + 1);
     setSearch("");
   };
@@ -37,7 +38,9 @@ export const Inputbar = (props) => {
           ></input>
         </div>
         <div>
-          <button className="button">+</button>
+          <button className="button">
+            <div className="plus">+</div>
+          </button>
         </div>
       </form>
     </div>
