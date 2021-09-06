@@ -137,18 +137,18 @@ li {
   width: 2em;
   height: 2em;
   border: transparent;
-  background-color: rgb(97, 177, 90);
+  background-color: rgba(97, 177, 90, 1);
   margin-right: 7px;
   border-radius: 3px;
 }
 .btn-check:hover {
-  opacity: 50%;
+  background-color: rgba(97, 177, 90, 0.5);
 }
 .text-btn-del {
   font-size: 18px;
 }
 .btn-del:hover {
-  opacity: 50%;
+  background-color: rgba(221, 8, 8, 0.5);
 }
 
 ul {
